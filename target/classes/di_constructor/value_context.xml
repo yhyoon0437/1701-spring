@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- 생성자가 기본형의 매개변수가 있는 클래스 -->
+   <bean id='obj' class='di_constructor.ValueObject'>
+      <constructor-arg value='4'/>
+   </bean>   
+   
+   <!-- setter를 통한 DI (구구단! 2단~9단) -->
+   <bean id='value' class='di_constructor.ValueObjectProperty'>
+      <property name="sdan" value="2"/>
+      <property name="edan" value="9">
+      
+      </property>
+   
+   </bean>
+   
+   <!-- Spring DI -->
+   <bean id='db' class='di_constructor.SpringDBConnect'>
+   
+      <property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+            <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+            <property name="username" value="hr" />
+            <property name="password" value="hr" />
+    </bean>
+</beans> 

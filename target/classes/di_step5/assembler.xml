@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- MySql 이 db로 만들어짐 -->
+   <bean id="db" class="di_step5.Oracle" /> <!-- 경로야 경로! -->
+   
+   <bean id="assem" class="di_step5.Assembler">
+      <!-- 생성자의 매개변수로 ref 타입의 db가 들어감. -->
+      <constructor-arg ref='db'/> <!-- 바로 위, Assembler를 통해서 -->
+   </bean>
+</beans>
