@@ -14,13 +14,20 @@
 	<aop:config>
 		<aop:aspect id="measureAspect" ref="exeTimeAspect">
 			<aop:pointcut id="publicMethod"
-			 	expression="execution(public * aop_xml..*(..))" />
-			<aop:around pointcut-ref="publicMethod" method="measure"/>
+			 	expression="execution(* factorial(..))" />
+			<aop:around method="measure" pointcut-ref="publicMethod" />
+		</aop:aspect>
+		
+		<aop:aspect id="beforeAspect" ref="beforeAdvice">
+			<aop:pointcut id="beforeMethod"
+			 	expression="execution(* loginCheck(..))" />
+			<aop:before method="before" pointcut-ref="beforeMethod" />
 		</aop:aspect>
 	</aop:config>
 	
-	<bean id="impeCal" class="aop_xml.ImpeCalculator">
-	</bean>
-	<bean id="recCal" class="aop_xml.RecCalculator">
-	</bean>
+	<bean id="impeCal" class="aop_xml.ImpeCalculator"/>
+	<bean id="recCal" class="aop_xml.RecCalculator"/>
+	<bean id="beforeAdvice" class="aop_xml.BeforeAdvice"/>
+	<bean id="login" class="aop_xml.Login"/>
+	
 </beans>

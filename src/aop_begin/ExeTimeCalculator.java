@@ -4,6 +4,7 @@ public class ExeTimeCalculator implements Calculator {
 	
 	private Calculator delegate;
 	
+	
 	public ExeTimeCalculator(Calculator c) {
 		this.delegate = c;
 	}
