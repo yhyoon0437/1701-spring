@@ -24,6 +24,8 @@
 				
 				<!--처리결과를 누구에게 전달 할것인지 정의한 파일 이름이 컨트롤러  -->
 				/WEB-INF/spring-controller.xml
+				
+				
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -36,6 +38,28 @@
 		*.do보다 포괄적인 개념이다  -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!--회원관리에 대한 dispatcher  -->
+	<!--dispatcher file 이름은 반드시 member-servlet.xml 이여야 함.  -->
+	<servlet>
+		<servlet-name>member</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>member</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	
+	<!--게시판에 대한 dispatcher  -->
+	
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
